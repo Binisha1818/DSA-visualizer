@@ -180,7 +180,8 @@
 }
 
 .progress-bar {
-  flex: 1;
+  flex: 0 0 auto;
+  width: 80px;
   height: 5px;
   background: var(--line);
   border-radius: 999px;
