@@ -236,8 +236,6 @@
   padding: 30px 24px 55px;
   box-sizing: border-box;
   overflow-x: auto;
-  background: var(--paper);
-  border: 1px solid var(--line);
   border-radius: 14px;
 }
 
@@ -520,7 +518,7 @@
   }
 
   .array-container {
-    min-height: 200px;
+    min-height: 100px;
     margin-top: 16px;
   }
 
