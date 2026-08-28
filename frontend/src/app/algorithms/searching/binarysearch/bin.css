@@ -1,144 +1,228 @@
+
+/* ========================================
+   BINARY SEARCH PAGE
+======================================== */
+
 .bs-page {
-  padding: 32px 40px 60px;
-  color: #e6e8ee;
-  background: #0b0e14;
   min-height: 100vh;
+  padding: 28px 32px 50px;
+  color: #f7f1e7;
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      hsl(0, 0%, 1%) 0,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      hwb(0 4% 96%) 0,
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #0b0a08,
+      #17130e 50%,
+      #0d0c0a
+    );
+  box-sizing: border-box;
 }
 
+/* ========================================
+   TITLE
+======================================== */
+
 .bs-title {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0 0 5px;
+  letter-spacing: -0.5px;
 }
 
 .bs-subtitle {
-  color: #8b93a7;
-  margin: 0 0 20px;
-  font-size: 15px;
-  max-width: 640px;
+  color: hsl(304, 73%, 84%);
+  margin: 0 0 18px;
+  font-size: 14px;
+  max-width: 600px;
+  line-height: 1.5;
 }
+
+/* ========================================
+   CONTROLS
+======================================== */
 
 .bs-controls {
   display: flex;
   align-items: end;
-  gap: 16px;
-  background: #131722;
-  border: 1px solid #1e2330;
+  gap: 14px;
+  background: rgba(29, 26, 21, 0.9);
   border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 14px;
+  padding: 13px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 .bs-controls label {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-size: 12px;
-  color: #8b93a7;
+  font-size: 11px;
+  color: #212121;
 }
 
 .bs-controls input {
-  background: #0b0e14;
-  border: 1px solid #262b38;
-  border-radius: 6px;
-  color: #e6e8ee;
-  padding: 7px 10px;
-  width: 100px;
-  font-size: 14px;
+  background: #0f0e0c;
+  border: none;
+  border-radius: 7px;
+  color: #f6eee2;
+  padding: 8px 10px;
+  width: 90px;
+  font-size: 13px;
+  outline: none;
+  box-shadow: inset 0 0 0 1px #393229;
 }
 
+.bs-controls input:focus {
+  box-shadow: inset 0 0 0 1px #d8b982;
+}
+
+/* ========================================
+   RUN BUTTON
+======================================== */
+
 .bs-run {
-  background: #16a34a;
-  color: #fff;
+  background: linear-gradient(
+    135deg,
+    oklab(92.918% 0.00159 0.00598),
+    #c9a66b
+  );
+  color: #17120b;
   border: none;
   border-radius: 8px;
-  padding: 10px 18px;
-  font-size: 14px;
-  font-weight: 600;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 700;
   cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 5px 18px rgba(218, 183, 120, 0.15);
 }
+
+.bs-run:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(
+    135deg,
+    #efd4a4,
+    #d4b276
+  );
+}
+
+/* ========================================
+   COMPLEXITY
+======================================== */
 
 .bs-complexity-inline {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  font-size: 13px;
+  gap: 9px;
+  margin-bottom: 16px;
+  font-size: 12px;
   flex-wrap: wrap;
 }
 
 .bs-complexity-badge {
-  background: #1e2330;
-  color: #60a5fa;
+  background: #30281d;
+  color: #e5c58f;
   border-radius: 6px;
-  padding: 3px 10px;
+  padding: 4px 9px;
   font-weight: 700;
 }
 
 .bs-badge-space {
-  color: #fbbf24;
+  color: #d9a879;
 }
 
 .bs-complexity-note {
-  color: #8b93a7;
+  color: #918578;
 }
+
+/* ========================================
+   PLAYBACK
+======================================== */
 
 .bs-playback {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #131722;
-  border: 1px solid #1e2330;
+  gap: 8px;
+  background: rgba(29, 26, 21, 0.9);
   border-radius: 12px;
-  padding: 14px 18px;
-  margin-bottom: 16px;
+  padding: 11px 14px;
+  margin-bottom: 13px;
   flex-wrap: wrap;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .bs-playback button {
-  background: #1a1f2b;
-  color: #c3c9d6;
-  border: 1px solid #262b38;
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 14px;
+  background: #2a2620;
+  color: #e8dfd2;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-size: 13px;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.bs-playback button:hover:not(:disabled) {
+  background: #3b342a;
+  transform: translateY(-1px);
 }
 
 .bs-playback button:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: default;
 }
 
 .bs-step-count {
-  color: #8b93a7;
-  font-size: 13px;
+  color: #9f9384;
+  font-size: 12px;
   margin-left: auto;
 }
 
 .bs-speed {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: #8b93a7;
+  gap: 7px;
+  font-size: 12px;
+  color: #9f9384;
 }
 
+/* ========================================
+   EXPLANATION
+======================================== */
+
 .bs-note {
-  background: #131722;
-  border-left: 3px solid #2563eb;
+  background: linear-gradient(
+    135deg,
+    rgba(55, 45, 32, 0.9),
+    rgba(35, 31, 26, 0.9)
+  );
+  border-left: 3px solid #d7b477;
   border-radius: 8px;
-  padding: 14px 18px;
-  margin-bottom: 32px;
-  font-size: 14px;
-  color: #dfe3ec;
-  min-height: 20px;
+  padding: 11px 15px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: #eee4d5;
+  min-height: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
+
+/* ========================================
+   ARRAY
+======================================== */
 
 .bs-strip {
   display: flex;
-  gap: 8px;
-  margin-bottom: 28px;
+  gap: 7px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
 }
 
@@ -152,124 +236,250 @@
 .bs-pointer-row {
   display: flex;
   gap: 3px;
-  height: 18px;
+  height: 17px;
 }
 
+/* ========================================
+   POINTER TAGS
+======================================== */
+
 .bs-tag {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  padding: 1px 5px;
+  padding: 2px 5px;
   border-radius: 4px;
   text-transform: uppercase;
 }
 
 .bs-tag-low {
-  background: #1e3a5f;
-  color: #60a5fa;
+  background: #263b35;
+  color: #a9d1bd;
 }
 
 .bs-tag-mid {
-  background: #4a3411;
-  color: #fbbf24;
+  background: hsl(60, 1%, 86%);
+  color: hsl(36, 10%, 90%);
 }
 
 .bs-tag-high {
-  background: #3a1e4f;
-  color: #c084fc;
+  background: hsl(9, 100%, 96%);
+  color: #d8aaa0;
 }
 
+/* ========================================
+   ARRAY BOXES
+======================================== */
+
 .bs-box {
-  width: 54px;
-  height: 54px;
-  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
-  border: 1px solid #262b38;
-  background: #1a1f2b;
-  color: #e6e8ee;
-  transition: background 0.2s, border-color 0.2s, opacity 0.2s, transform 0.2s;
+  border: none;
+  background: #25221e;
+  color: #eee6da;
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .bs-default {
-  background: #1a1f2b;
-  border-color: #262b38;
-  color: #e6e8ee;
+  background: #25221e;
+  color: #eee6da;
 }
 
 .bs-range {
-  border-color: #3b82f6;
-  color: #93c5fd;
+  background: #313c35;
+  color: #b9d9c6;
+  box-shadow: 0 0 12px rgba(160, 200, 175, 0.1);
 }
 
 .bs-mid {
-  background: #4a3411;
-  border-color: #d97706;
-  color: #fbbf24;
+  background: #554020;
+  color: #f0ca86;
   transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(220, 180, 100, 0.18);
 }
 
 .bs-eliminated {
-  opacity: 0.3;
+  opacity: 0.22;
 }
 
 .bs-found {
-  background: #14351f;
-  border-color: #22c55e;
-  color: #86efac;
+  background: #304a3b;
+  color: #b5e3c8;
   transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(120, 200, 155, 0.18);
 }
 
 .bs-index {
-  font-size: 11px;
-  color: #6b7280;
+  font-size: 10px;
+  color: #756b5e;
 }
+
+/* ========================================
+   LEGEND
+======================================== */
 
 .bs-legend {
   display: flex;
-  gap: 20px;
-  font-size: 13px;
-  color: #8b93a7;
+  gap: 16px;
+  font-size: 12px;
+  color: #9f9384;
   flex-wrap: wrap;
 }
 
 .bs-legend span {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .bs-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 3px;
   display: inline-block;
 }
 
 .bs-dot.bs-default {
-  background: #1a1f2b;
-  border: 1px solid #262b38;
+  background: #25221e;
 }
 
 .bs-dot.bs-range {
-  background: #1a1f2b;
-  border: 1px solid #3b82f6;
+  background: #313c35;
 }
 
 .bs-dot.bs-mid {
-  background: #4a3411;
-  border: 1px solid #d97706;
+  background: #554020;
 }
 
 .bs-dot.bs-eliminated {
-  background: #1a1f2b;
-  border: 1px solid #262b38;
+  background: #25221e;
   opacity: 0.3;
 }
 
 .bs-dot.bs-found {
-  background: #14351f;
-  border: 1px solid #22c55e;
+  background: #304a3b;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .bs-page {
+    padding: 22px 16px 40px;
+  }
+
+  .bs-title {
+    font-size: 26px;
+  }
+
+  .bs-subtitle {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .bs-controls {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .bs-controls input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .bs-run {
+    width: 100%;
+  }
+
+  .bs-playback {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .bs-playback button {
+    flex: 1;
+    min-width: 70px;
+  }
+
+  .bs-step-count {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    order: 3;
+  }
+
+  .bs-speed {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .bs-note {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .bs-strip {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .bs-box {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .bs-legend {
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 420px) {
+  .bs-page {
+    padding: 18px 12px 32px;
+  }
+
+  .bs-title {
+    font-size: 23px;
+  }
+
+  .bs-controls {
+    padding: 11px;
+  }
+
+  .bs-playback button {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
+
+  .bs-box {
+    width: 39px;
+    height: 39px;
+    font-size: 13px;
+  }
+
+  .bs-strip {
+    gap: 5px;
+  }
+
+  .bs-legend {
+    font-size: 11px;
+  }
 }
