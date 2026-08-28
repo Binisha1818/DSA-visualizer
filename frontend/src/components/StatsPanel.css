@@ -1,12 +1,14 @@
-/* StatsPanel.css */
+
+/* ========================================
+   STATS PANEL
+======================================== */
 
 .stats-panel {
   display: flex;
   align-items: center;
   gap: 24px;
   padding: 10px 16px;
-  background: #111827;
-  border-radius: 8px;
+  border-radius: 12px;
   margin: 0.75rem 0;
   flex-wrap: wrap;
 }
@@ -19,11 +21,11 @@
 }
 
 .stats-panel__label {
-  color: #9ca3af;
+  color: #a7b5b0;
 }
 
 .stats-panel__value {
-  color: #e5e7eb;
+  color: #f1f7f4;
   font-weight: 600;
 }
 
@@ -34,14 +36,15 @@
 
 .stats-panel__bar {
   flex: 1;
-  height: 6px;
-  background: #1f2937;
-  border-radius: 3px;
+  height: 7px;
+  background: hsl(150, 9%, 96%);
+  border-radius: 4px;
   overflow: hidden;
 }
 
 .stats-panel__bar-fill {
   height: 100%;
-  background: #60a5fa;
+  background: #7de2b8;
+  border-radius: 4px;
   transition: width 0.15s ease;
 }
