@@ -236,9 +236,9 @@ button {
 .step-explanation {
   margin-top: 24px;
   padding: 18px 20px;
-  border: 1px solid #252529;
+  
   border-radius: 8px;
-  background: #111114;
+
 }
 
 .step-explanation span {
@@ -257,7 +257,7 @@ button {
   border: 1px solid #252529;
   border-radius: 8px;
   overflow: hidden;
-  background: #0f0f12;
+  
 }
 
 .code-header {
