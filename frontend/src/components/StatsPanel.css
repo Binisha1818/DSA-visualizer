@@ -21,11 +21,12 @@
 }
 
 .stats-panel__label {
-  color: #a7b5b0;
+  color: hwb(0 93% 4%);
+    font-weight: 600;
 }
 
 .stats-panel__value {
-  color: #f1f7f4;
+  color: hwb(180 92% 6%);
   font-weight: 600;
 }
 
@@ -48,3 +49,4 @@
   border-radius: 4px;
   transition: width 0.15s ease;
 }
+
