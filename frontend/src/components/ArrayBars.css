@@ -17,17 +17,26 @@
 
 .array-bar {
   width: 36px;
-  background: #60a5fa;
+  background: linear-gradient(180deg, #8fbdb3 0%, #6fa89c 100%);
   border-radius: 4px 4px 0 0;
-  transition: height 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 2px 6px rgba(111, 168, 156, 0.25);
+  transition:
+    height 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
+
 .array-bar--comparing {
-  background: #f87171;
+  background: linear-gradient(180deg, #e3a695 0%, #d4907d 100%);
+  box-shadow: 0 4px 10px rgba(212, 144, 125, 0.3);
+  transform: translateY(-2px);
 }
 
 .array-bar--sorted {
-  background: #4ade80;
+  background: linear-gradient(180deg, #a9bf9a 0%, #92ab82 100%);
+  box-shadow: 0 2px 6px rgba(146, 171, 130, 0.25);
 }
 
 .array-bar-label {
