@@ -1,10 +1,13 @@
-/* stepExplanation.css */
+
+/* ========================================
+   STEP EXPLANATION
+======================================== */
 
 .step-explanation {
   padding: 12px 16px;
-  background: #111827;
-  border-left: 3px solid #60a5fa;
-  border-radius: 6px;
+  background: #1d1920;
+  border-left: 3px solid #ffb38a;
+  border-radius: 10px;
   margin: 0.75rem 0;
 }
 
@@ -14,14 +17,14 @@
 
 .step-explanation__step-count {
   font-size: 11px;
-  color: #6b7280;
+  color: #a99ca5;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .step-explanation__message {
   font-size: 14px;
-  color: #e5e7eb;
+  color: #f5e9ed;
   margin: 0;
 }
 
@@ -34,14 +37,14 @@
 
 .step-explanation__chip {
   padding: 4px 10px;
-  background: #1f2937;
-  border-radius: 4px;
+  background: #30232a;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
-  color: #f87171;
+  color: #ffad8f;
 }
 
 .step-explanation__vs {
   font-size: 11px;
-  color: #6b7280;
+  color: #a99ca5;
 }
