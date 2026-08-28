@@ -4,19 +4,20 @@
 ======================================== */
 
 :root {
-  --ink: #0a0a0a;
-  --ink-soft: #1c1c1c;
-  --paper: #ffffff;
-  --paper-soft: #fafafa;
-  --line: #e8e8e8;
-  --line-strong: #d4d4d4;
+  --ink: hsl(0, 2%, 25%);
+  --ink-soft: hsla(0, 3%, 28%, 0.658);
+  --paper: hwb(0 80% 17%);
+  --paper-soft: hsl(0, 6%, 80%);
+  --line: hsl(0, 8%, 79%);
+  --line-strong: hwb(0 83% 17%);
   --gray-1: #999999;
   --gray-2: #707070;
-  --gray-3: #444444;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --gray-3: #680101;
+  --shadow-sm: 0 1px 2px #22c7780f;
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.12);
 }
+
 
 .selection-page {
   min-height: 100vh;
