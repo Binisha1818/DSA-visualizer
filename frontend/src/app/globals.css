@@ -1,3 +1,21 @@
+:root {
+  --bg: #0b0b0d;
+  --bg-raised: #111114;
+  --bg-raised-2: #17171a;
+  --border: #222225;
+  --border-soft: #1d1f24;
+
+  --ink: #f5f5f5;
+  --ink-dim: #cccccc;
+  --ink-mute: #aaaaaa;
+  --ink-faint: #888888;
+  --ink-ghost: #666666;
+  --ink-shadow: #444444;
+
+  --white: #ffffff;
+  --black: #000000;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,6 +23,7 @@
 }
 
 body {
+  background: var(--bg);
 
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -15,35 +34,38 @@ button {
   border: none;
 }
 
-  .hero {
-    padding: 48px 20px;
-  }
+.hero {
+  padding: 48px 20px;
+}
 
-  .hero h1 {
-    font-size: clamp(32px, 9vw, 42px);
-    letter-spacing: -1.5px;
-    line-height: 1.08;
-  }
+.hero h1 {
+  font-size: clamp(32px, 9vw, 42px);
+  letter-spacing: -1.5px;
+  line-height: 1.08;
+}
 
-  .hero-description {
-    font-size: 15px;
-    line-height: 1.6;
-  }
+.hero-description {
+  font-size: 15px;
+  line-height: 1.6;
+}
 
-  .primary-button {
-    width: 100%;
-    text-align: center;
-  }.hero {
+.primary-button {
+  width: 100%;
+  text-align: center;
+}
+
+.hero {
   max-width: 850px;
   width: 100%;
   padding: clamp(40px, 10vw, 120px) clamp(20px, 5vw, 50px);
 }
+
 /* NAVBAR */
 
 .navbar {
   height: 64px;
   padding: 0 28px;
-  border-bottom: 1px solid #222225;
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +77,7 @@ button {
 }
 
 .logo span {
-  color: #888;
+  color: var(--ink-faint);
   font-weight: 400;
 }
 
@@ -68,24 +90,25 @@ button {
 .nav-button,
 .navbar-links a {
   background: transparent;
-  color: #aaa;
+  color: var(--ink-mute);
   padding: 8px 12px;
   text-decoration: none;
 }
 
 .nav-button:hover,
 .navbar-links a:hover {
-  color: white;
+  color: var(--white);
 }
 
 .navbar-links a.active {
-  color: white;
+  color: var(--white);
 }
+
 .profile-button {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #f5f5f5;
+  background: var(--ink);
   color: #111;
   font-weight: 700;
 }
@@ -95,46 +118,6 @@ button {
 .app-layout {
   display: flex;
   min-height: calc(100vh - 64px);
-}
-
-/* SIDEBAR */
-
-.sidebar {
-  width: 230px;
-  padding: 28px 18px;
-  border-right: 1px solid #222225;
-}
-
-.sidebar-title {
-  font-size: 11px;
-  color: #666;
-  letter-spacing: 1.5px;
-  margin-bottom: 24px;
-}
-
-.sidebar-section {
-  margin-bottom: 28px;
-}
-
-.sidebar-section > p {
-  font-size: 13px;
-  color: #888;
-  margin-bottom: 8px;
-}
-
-.sidebar-section button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 9px 12px;
-  background: transparent;
-  color: #aaa;
-  border-radius: 6px;
-}
-
-.sidebar-section button:hover {
-  background: #17171a;
-  color: white;
 }
 
 /* MAIN */
@@ -152,7 +135,7 @@ button {
 }
 
 .eyebrow {
-  color: #777;
+  color: var(--ink-ghost);
   font-size: 11px;
   letter-spacing: 2px;
   margin-bottom: 20px;
@@ -165,13 +148,13 @@ button {
 }
 
 .hero h1 span {
-  color: #666;
+  color: var(--ink-ghost);
 }
 
 .hero-description {
   max-width: 580px;
   margin-top: 28px;
-  color: #888;
+  color: var(--ink-faint);
   font-size: 17px;
   line-height: 1.7;
 }
@@ -180,14 +163,20 @@ button {
   margin-top: 35px;
   padding: 13px 20px;
   border-radius: 7px;
-  background: white;
+  background: var(--white);
   color: #111;
   font-weight: 600;
+  transition: background 0.2s ease;
 }
 
 .primary-button:hover {
   background: #ddd;
 }
+
+/* =========================================
+   ARRAY VISUALIZER — monochrome states
+========================================= */
+
 .array-visualizer {
   min-height: 400px;
   display: flex;
@@ -200,50 +189,71 @@ button {
 .array-bar {
   width: 55px;
   min-height: 30px;
-  background: #444;
+  background: linear-gradient(180deg, var(--ink-shadow) 0%, #2b2b2e 100%);
   border-radius: 6px 6px 0 0;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   transition:
     height 0.25s ease,
     background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .array-bar span {
   position: absolute;
   top: -25px;
   font-size: 13px;
-  color: #aaa;
+  color: var(--ink-mute);
 }
 
+/* Being compared / actively touched */
 .array-bar.active {
-  background: #f5c542;
+  background: linear-gradient(180deg, #d9d9d9 0%, var(--white) 100%);
   transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
 }
 
+.array-bar.active span {
+  color: var(--white);
+}
+
+/* Current minimum candidate */
 .array-bar.minimum {
-  background: #4f8cff;
+  background: var(--black);
+  border: 1.5px solid var(--white);
   transform: translateY(-6px);
+  box-shadow: 0 10px 26px rgba(255, 255, 255, 0.18);
 }
 
-.array-bar.sorted {
-  background: #55c878;
+.array-bar.minimum span {
+  color: var(--white);
+  font-weight: 700;
 }
+
+/* Sorted / locked in */
+.array-bar.sorted {
+  background: linear-gradient(180deg, #6b6b6b 0%, #8f8f8f 100%);
+}
+
+.array-bar.sorted span {
+  color: var(--ink-dim);
+}
+
 .step-explanation {
   margin-top: 24px;
   padding: 18px 20px;
   
   border-radius: 8px;
-
-}
+  
 
 .step-explanation span {
   font-size: 10px;
   letter-spacing: 1.5px;
-  color: #666;
+  color: var(--ink-ghost);
 }
 
 .step-explanation p {
@@ -251,20 +261,21 @@ button {
   color: #ddd;
   font-size: 15px;
 }
+
 .algorithm-code {
   margin-top: 24px;
-  border: 1px solid #252529;
+  border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  
+  background: #0f0f12;
 }
 
 .code-header {
   display: flex;
   justify-content: space-between;
   padding: 13px 18px;
-  border-bottom: 1px solid #252529;
-  color: #666;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink-ghost);
   font-size: 10px;
   letter-spacing: 1.3px;
 }
@@ -285,23 +296,29 @@ button {
 }
 
 .code-line-active {
-  background: #1b1b20;
-  color: #fff;
+  background: var(--bg-raised-2);
+  color: var(--white);
+  border-left: 2px solid var(--white);
 }
 
 .line-number {
   width: 35px;
-  color: #444;
+  color: var(--ink-shadow);
   user-select: none;
 }
 
 .code-line-active .line-number {
-  color: #f5c542;
+  color: var(--white);
 }
 
 .code-line code {
   white-space: pre;
 }
+
+/* =========================================
+   ALGORITHM SELECTOR — monochrome
+========================================= */
+
 .algorithm-selector {
   display: flex;
   align-items: center;
@@ -313,73 +330,33 @@ button {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
-  color: #9ca3af;
+  color: var(--ink-mute);
 }
 
 .algorithm-selector select {
   min-width: 220px;
   padding: 10px 14px;
 
-  border: 1px solid #293244;
+  border: 1px solid var(--border);
   border-radius: 8px;
 
-  background: #111827;
-  color: #f9fafb;
+  background: var(--bg-raised);
+  color: var(--ink);
 
   font-size: 14px;
   cursor: pointer;
   outline: none;
+  transition: border-color 0.2s ease;
 }
 
 .algorithm-selector select:hover {
-  border-color: #4b5563;
+  border-color: var(--ink-shadow);
 }
 
 .algorithm-selector select:focus {
-  border-color: #60a5fa;
-}
-.sidebar-submenu {
-  display: flex;
-  flex-direction: column;
-  margin-left: 15px;
-  margin-top: 4px;
-  margin-bottom: 8px;
-  border-left: 1px solid #252525;
-  padding-left: 12px;
+  border-color: var(--white);
 }
 
-.sidebar-submenu a {
-  font-size: 14px;
-  padding: 7px 0;
-  color: #777;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.sidebar-submenu a:hover {
-  color: #fff;
-}
-
-.sidebar-submenu a.active {
-  color: #fff;
-  font-weight: 500;
-}
-
-.sidebar a {
-  text-decoration: none;
-}
-
-.sidebar > .sidebar-section > a,
-.sidebar-heading {
-  display: block;
-  padding: 8px 0;
-  color: #999;
-}
-
-.sidebar-heading {
-  color: #aaa;
-  font-size: 15px;
-}
 /* =========================================
    SIDEBAR
 ========================================= */
@@ -397,13 +374,12 @@ button {
   box-sizing: border-box;
 
   background: #090a0c;
-  border-right: 1px solid #1d1f24;
+  border-right: 1px solid var(--border-soft);
 
-  color: #f5f5f5;
+  color: var(--ink);
 
   overflow-y: auto;
 }
-
 
 /* =========================================
    SIDEBAR SECTION
@@ -424,7 +400,6 @@ button {
   letter-spacing: 1.5px;
 }
 
-
 /* =========================================
    ALGORITHM HEADING
 ========================================= */
@@ -436,7 +411,6 @@ button {
 
   font-size: 15px;
 }
-
 
 /* =========================================
    MAIN LINKS
@@ -461,20 +435,18 @@ button {
 }
 
 .sidebar-section > a:hover {
-  color: #ffffff;
+  color: var(--white);
 }
-
 
 /* =========================================
    ACTIVE LINK
 ========================================= */
 
 .sidebar-section > a.active {
-  color: #ffffff;
+  color: var(--white);
 
   font-weight: 500;
 }
-
 
 /* =========================================
    SUBMENU
@@ -505,17 +477,16 @@ button {
 }
 
 .sidebar-submenu a:hover {
-  color: #ffffff;
+  color: var(--white);
 
   padding-left: 3px;
 }
 
 .sidebar-submenu a.active {
-  color: #ffffff;
+  color: var(--white);
 
   font-weight: 500;
 }
-
 
 /* =========================================
    GRAPH
@@ -524,7 +495,6 @@ button {
 .sidebar-section .sidebar-submenu + a {
   margin-top: 4px;
 }
-
 
 /* =========================================
    DATA STRUCTURES
@@ -537,13 +507,12 @@ button {
 }
 
 .sidebar-section:last-child > a:hover {
-  color: #ffffff;
+  color: var(--white);
 }
 
 .sidebar-section:last-child > a.active {
-  color: #ffffff;
+  color: var(--white);
 }
-
 
 /* =========================================
    MAIN CONTENT
@@ -557,13 +526,11 @@ button {
   box-sizing: border-box;
 }
 
-
 /* =========================================
    RESPONSIVE
 ========================================= */
 
 @media (max-width: 900px) {
-
   .sidebar {
     width: 210px;
 
@@ -575,9 +542,7 @@ button {
   }
 }
 
-
 @media (max-width: 700px) {
-
   .sidebar {
     position: static;
 
@@ -586,10 +551,14 @@ button {
     height: auto;
 
     border-right: none;
-    border-bottom: 1px solid #1d1f24;
+    border-bottom: 1px solid var(--border-soft);
   }
 
   .main-content {
     margin-left: 0;
+  }
+
+  .array-bar {
+    width: 42px;
   }
 }
