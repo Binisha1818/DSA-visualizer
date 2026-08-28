@@ -1,144 +1,207 @@
+
+/* ========================================
+   LINEAR SEARCH PAGE
+======================================== */
+
 .ls-page {
-  padding: 32px 40px 60px;
-  color: #e6e8ee;
-  background: #0b0e14;
   min-height: 100vh;
+  padding: 28px 32px 50px;
+  color: #f7f7f7;
+  background:
+    radial-gradient(circle at 10% 10%, #303030 0, transparent 35%),
+    radial-gradient(circle at 90% 20%, #242424 0, transparent 30%),
+    linear-gradient(135deg, #090909, #161616 50%, #0c0c0c);
+  box-sizing: border-box;
 }
 
+/* ========================================
+   TITLE
+======================================== */
+
 .ls-title {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 700;
-  margin: 0 0 6px;
+  margin: 0 0 5px;
+  letter-spacing: -0.5px;
 }
 
 .ls-subtitle {
-  color: #8b93a7;
-  margin: 0 0 20px;
-  font-size: 15px;
-  max-width: 640px;
+  color: #a3a3a3;
+  margin: 0 0 18px;
+  font-size: 14px;
+  max-width: 600px;
+  line-height: 1.5;
 }
+
+/* ========================================
+   CONTROLS
+======================================== */
 
 .ls-controls {
   display: flex;
   align-items: end;
-  gap: 16px;
-  background: #131722;
-  border: 1px solid #1e2330;
+  gap: 14px;
+  background: #181818;
   border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 14px;
+  padding: 13px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 .ls-controls label {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  font-size: 12px;
-  color: #8b93a7;
+  font-size: 11px;
+  color: #a8a8a8;
 }
 
 .ls-controls input {
-  background: #0b0e14;
-  border: 1px solid #262b38;
-  border-radius: 6px;
-  color: #e6e8ee;
-  padding: 7px 10px;
-  width: 100px;
-  font-size: 14px;
+  background: #0d0d0d;
+  border: none;
+  border-radius: 7px;
+  color: #f5f5f5;
+  padding: 8px 10px;
+  width: 90px;
+  font-size: 13px;
+  outline: none;
+  box-shadow: inset 0 0 0 1px #383838;
 }
 
+.ls-controls input:focus {
+  box-shadow: inset 0 0 0 1px #d4d4d4;
+}
+
+/* ========================================
+   RUN BUTTON
+======================================== */
+
 .ls-run {
-  background: #16a34a;
-  color: #fff;
+  background: #f2f2f2;
+  color: #111;
   border: none;
   border-radius: 8px;
-  padding: 10px 18px;
-  font-size: 14px;
-  font-weight: 600;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 700;
   cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 5px 18px rgba(255, 255, 255, 0.08);
 }
+
+.ls-run:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   COMPLEXITY
+======================================== */
 
 .ls-complexity-inline {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  font-size: 13px;
+  gap: 9px;
+  margin-bottom: 16px;
+  font-size: 12px;
   flex-wrap: wrap;
 }
 
 .ls-complexity-badge {
-  background: #1e2330;
-  color: #60a5fa;
+  background: #292929;
+  color: #f0f0f0;
   border-radius: 6px;
-  padding: 3px 10px;
+  padding: 4px 9px;
   font-weight: 700;
 }
 
 .ls-badge-space {
-  color: #fbbf24;
+  color: #d0d0d0;
 }
 
 .ls-complexity-note {
-  color: #8b93a7;
+  color: #898989;
 }
+
+/* ========================================
+   PLAYBACK
+======================================== */
 
 .ls-playback {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #131722;
-  border: 1px solid #1e2330;
+  gap: 8px;
+  background: #181818;
   border-radius: 12px;
-  padding: 14px 18px;
-  margin-bottom: 16px;
+  padding: 11px 14px;
+  margin-bottom: 13px;
   flex-wrap: wrap;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .ls-playback button {
-  background: #1a1f2b;
-  color: #c3c9d6;
-  border: 1px solid #262b38;
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: 14px;
+  background: #292929;
+  color: #e2e2e2;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 12px;
+  font-size: 13px;
   cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.ls-playback button:hover:not(:disabled) {
+  background: #3a3a3a;
+  transform: translateY(-1px);
 }
 
 .ls-playback button:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: default;
 }
 
 .ls-step-count {
-  color: #8b93a7;
-  font-size: 13px;
+  color: #999;
+  font-size: 12px;
   margin-left: auto;
 }
 
 .ls-speed {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: #8b93a7;
+  gap: 7px;
+  font-size: 12px;
+  color: #999;
 }
 
+/* ========================================
+   EXPLANATION
+======================================== */
+
 .ls-note {
-  background: #131722;
-  border-left: 3px solid #2563eb;
+  background: linear-gradient(
+    135deg,
+    #252525,
+    #191919
+  );
+  border-left: 3px solid #eeeeee;
   border-radius: 8px;
-  padding: 14px 18px;
-  margin-bottom: 32px;
-  font-size: 14px;
-  color: #dfe3ec;
-  min-height: 20px;
+  padding: 11px 15px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: #ededed;
+  min-height: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
+
+/* ========================================
+   ARRAY
+======================================== */
 
 .ls-strip {
   display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: 7px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
 }
 
@@ -150,112 +213,244 @@
 }
 
 .ls-pointer-row {
-  height: 18px;
+  height: 17px;
 }
+
+/* ========================================
+   TAG
+======================================== */
 
 .ls-tag {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  padding: 1px 6px;
+  padding: 2px 6px;
   border-radius: 4px;
-  background: #1e3a5f;
-  color: #60a5fa;
+  background: #333333;
+  color: #f2f2f2;
 }
 
+/* ========================================
+   ARRAY BOXES
+======================================== */
+
 .ls-box {
-  width: 54px;
-  height: 54px;
-  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
-  border: 1px solid #262b38;
-  background: #1a1f2b;
-  color: #e6e8ee;
-  transition: background 0.2s, border-color 0.2s, opacity 0.2s, transform 0.2s;
+  border: none;
+  background: #242424;
+  color: #eeeeee;
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .ls-default {
-  background: #1a1f2b;
-  border-color: #262b38;
-  color: #e6e8ee;
+  background: #242424;
+  color: #eeeeee;
 }
 
 .ls-current {
-  background: #1e3a5f;
-  border-color: #3b82f6;
-  color: #93c5fd;
+  background: #444444;
+  color: #ffffff;
   transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.12);
 }
 
 .ls-checked {
-  opacity: 0.35;
+  opacity: 0.25;
 }
 
 .ls-found {
-  background: #14351f;
-  border-color: #22c55e;
-  color: #86efac;
+  background: #f1f1f1;
+  color: #0d0d0d;
   transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 .ls-index {
-  font-size: 11px;
-  color: #6b7280;
+  font-size: 10px;
+  color: #737373;
 }
+
+/* ========================================
+   LEGEND
+======================================== */
 
 .ls-legend {
   display: flex;
-  gap: 20px;
-  font-size: 13px;
-  color: #8b93a7;
+  gap: 16px;
+  font-size: 12px;
+  color: #929292;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .ls-legend span {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .ls-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 3px;
   display: inline-block;
 }
 
 .ls-dot.ls-default {
-  background: #1a1f2b;
-  border: 1px solid #262b38;
+  background: #242424;
 }
 
 .ls-dot.ls-current {
-  background: #1e3a5f;
-  border: 1px solid #3b82f6;
+  background: #444444;
 }
 
 .ls-dot.ls-checked {
-  background: #1a1f2b;
-  border: 1px solid #262b38;
-  opacity: 0.35;
+  background: #242424;
+  opacity: 0.3;
 }
 
 .ls-dot.ls-found {
-  background: #14351f;
-  border: 1px solid #22c55e;
+  background: #f1f1f1;
 }
+
+/* ========================================
+   COMPARISON NOTE
+======================================== */
 
 .ls-compare-note {
   font-size: 13px;
-  color: #6b7280;
+  color: #858585;
   max-width: 640px;
   line-height: 1.6;
 }
 
 .ls-compare-note a {
-  color: #60a5fa;
+  color: #eeeeee;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .ls-page {
+    padding: 22px 16px 40px;
+  }
+
+  .ls-title {
+    font-size: 26px;
+  }
+
+  .ls-subtitle {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .ls-controls {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .ls-controls input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ls-run {
+    width: 100%;
+  }
+
+  .ls-playback {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .ls-playback button {
+    flex: 1;
+    min-width: 70px;
+  }
+
+  .ls-step-count {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    order: 3;
+  }
+
+  .ls-speed {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ls-note {
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .ls-strip {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .ls-box {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .ls-legend {
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 420px) {
+  .ls-page {
+    padding: 18px 12px 32px;
+  }
+
+  .ls-title {
+    font-size: 23px;
+  }
+
+  .ls-controls {
+    padding: 11px;
+  }
+
+  .ls-playback button {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
+
+  .ls-box {
+    width: 39px;
+    height: 39px;
+    font-size: 13px;
+  }
+
+  .ls-strip {
+    gap: 5px;
+  }
+
+  .ls-legend {
+    font-size: 11px;
+  }
 }
