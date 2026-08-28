@@ -1,0 +1,37 @@
+/* ArrayBars.css */
+
+.array-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 280px;
+  padding: 1rem;
+}
+
+.array-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.array-bar {
+  width: 36px;
+  background: #60a5fa;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.2s ease, background-color 0.2s ease;
+}
+
+.array-bar--comparing {
+  background: #f87171;
+}
+
+.array-bar--sorted {
+  background: #4ade80;
+}
+
+.array-bar-label {
+  font-size: 11px;
+  color: #cbd5e1;
+  margin-top: 4px;
+}

@@ -1,0 +1,273 @@
+.tp-page {
+  padding: 32px 40px 60px;
+  color: #e6e8ee;
+  background: #0b0e14;
+  min-height: 100vh;
+}
+
+.tp-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.tp-subtitle {
+  color: #8b93a7;
+  margin: 0 0 22px;
+  font-size: 15px;
+  max-width: 640px;
+}
+
+.tp-op-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tp-op-group button {
+  background: #1a1f2b;
+  color: #c3c9d6;
+  border: 1px solid #262b38;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tp-op-group .tp-op-active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.tp-controls {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  background: #131722;
+  border: 1px solid #1e2330;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+
+.tp-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #8b93a7;
+}
+
+.tp-controls input {
+  background: #0b0e14;
+  border: 1px solid #262b38;
+  border-radius: 6px;
+  color: #e6e8ee;
+  padding: 7px 10px;
+  width: 100px;
+  font-size: 14px;
+}
+
+.tp-run {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tp-complexity-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.tp-complexity-badge {
+  background: #1e2330;
+  color: #60a5fa;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+
+.tp-complexity-note {
+  color: #8b93a7;
+}
+
+.tp-playback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #131722;
+  border: 1px solid #1e2330;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tp-playback button {
+  background: #1a1f2b;
+  color: #c3c9d6;
+  border: 1px solid #262b38;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tp-playback button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.tp-step-count {
+  color: #8b93a7;
+  font-size: 13px;
+  margin-left: auto;
+}
+
+.tp-speed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #8b93a7;
+}
+
+.tp-note {
+  background: #131722;
+  border-left: 3px solid #2563eb;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: #dfe3ec;
+  min-height: 20px;
+}
+
+.tp-strip {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.tp-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.tp-pointer-row {
+  display: flex;
+  gap: 4px;
+  height: 20px;
+}
+
+.tp-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.tp-tag-left {
+  background: #1e3a5f;
+  color: #60a5fa;
+}
+
+.tp-tag-right {
+  background: #4a3411;
+  color: #fbbf24;
+}
+
+.tp-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  border: 1px solid #262b38;
+  background: #1a1f2b;
+  color: #e6e8ee;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.tp-matched {
+  background: #14351f;
+  border-color: #22c55e;
+  color: #86efac;
+  transform: translateY(-4px);
+}
+
+.tp-mismatch {
+  background: #3f1414;
+  border-color: #ef4444;
+  color: #fca5a5;
+  transform: translateY(-4px);
+}
+
+.tp-swapped {
+  background: #4a3411;
+  border-color: #d97706;
+  color: #fbbf24;
+  transform: translateY(-4px);
+}
+
+.tp-index {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.tp-legend {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #8b93a7;
+  flex-wrap: wrap;
+}
+
+.tp-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.tp-dot.tp-default {
+  background: #1a1f2b;
+  border: 1px solid #262b38;
+}
+
+.tp-dot.tp-matched {
+  background: #14351f;
+  border: 1px solid #22c55e;
+}
+
+.tp-dot.tp-mismatch {
+  background: #3f1414;
+  border: 1px solid #ef4444;
+}
+
+.tp-dot.tp-swapped {
+  background: #4a3411;
+  border: 1px solid #d97706;
+}

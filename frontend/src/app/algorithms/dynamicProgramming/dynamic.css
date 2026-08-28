@@ -1,0 +1,292 @@
+.dp-page {
+  padding: 32px 40px 60px;
+  color: #e6e8ee;
+  background: #0b0e14;
+  min-height: 100vh;
+}
+
+.dp-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.dp-subtitle {
+  color: #8b93a7;
+  margin: 0 0 20px;
+  font-size: 15px;
+  max-width: 640px;
+}
+
+.dp-op-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.dp-op-group button {
+  background: #1a1f2b;
+  color: #c3c9d6;
+  border: 1px solid #262b38;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dp-op-group .dp-op-active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.dp-context {
+  color: #c3c9d6;
+  font-size: 14px;
+  margin: 0 0 14px;
+}
+
+.dp-context code {
+  background: #1a1f2b;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #93c5fd;
+}
+
+.dp-complexity-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.dp-complexity-badge {
+  background: #1e2330;
+  color: #60a5fa;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+
+.dp-badge-space {
+  color: #fbbf24;
+}
+
+.dp-complexity-note {
+  color: #8b93a7;
+}
+
+.dp-playback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #131722;
+  border: 1px solid #1e2330;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.dp-playback button {
+  background: #1a1f2b;
+  color: #c3c9d6;
+  border: 1px solid #262b38;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dp-playback button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.dp-step-count {
+  color: #8b93a7;
+  font-size: 13px;
+  margin-left: auto;
+}
+
+.dp-speed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #8b93a7;
+}
+
+.dp-note {
+  background: #131722;
+  border-left: 3px solid #2563eb;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: #dfe3ec;
+  min-height: 20px;
+}
+
+/* Fibonacci row */
+
+.dp-fib-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.dp-fib-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.dp-fib-index {
+  font-size: 11px;
+  color: #6b7280;
+  font-family: monospace;
+}
+
+.dp-fib-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid #262b38;
+  background: #1a1f2b;
+  color: #e6e8ee;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.dp-default {
+  background: #131722;
+  border-color: #1e2330;
+  color: #4b5563;
+}
+
+.dp-dep {
+  background: #4a3411;
+  border-color: #d97706;
+  color: #fbbf24;
+}
+
+.dp-current {
+  background: #1e3a5f;
+  border-color: #3b82f6;
+  color: #93c5fd;
+  transform: translateY(-4px);
+}
+
+.dp-filled {
+  background: #1a1f2b;
+  border-color: #262b38;
+  color: #e6e8ee;
+}
+
+/* LCS grid */
+
+.dp-lcs-wrap {
+  overflow-x: auto;
+  margin-bottom: 28px;
+}
+
+.dp-lcs-table {
+  border-collapse: collapse;
+  font-family: monospace;
+}
+
+.dp-lcs-table th,
+.dp-lcs-table td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #1e2330;
+}
+
+.dp-lcs-table th {
+  color: #8b93a7;
+  font-weight: 700;
+  background: #131722;
+}
+
+.dp-cell {
+  background: #131722;
+  color: #c3c9d6;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dp-cell-dep {
+  background: #4a3411;
+  color: #fbbf24;
+}
+
+.dp-cell-current {
+  background: #1e3a5f;
+  color: #93c5fd;
+  font-weight: 700;
+}
+
+.dp-cell-path {
+  background: #14351f;
+  color: #86efac;
+  font-weight: 700;
+}
+
+/* legend */
+
+.dp-legend {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #8b93a7;
+  flex-wrap: wrap;
+}
+
+.dp-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.dp-dot.dp-default {
+  background: #131722;
+  border: 1px solid #1e2330;
+}
+
+.dp-dot.dp-dep {
+  background: #4a3411;
+  border: 1px solid #d97706;
+}
+
+.dp-dot.dp-current {
+  background: #1e3a5f;
+  border: 1px solid #3b82f6;
+}
+
+.dp-dot.dp-filled {
+  background: #1a1f2b;
+  border: 1px solid #262b38;
+}
+
+.dp-dot.dp-path {
+  background: #14351f;
+  border: 1px solid #22c55e;
+}

@@ -1,0 +1,891 @@
+/* =========================================
+   DFS VISUALIZER
+========================================= */
+
+.dfs-page {
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+
+  background: #090a0c;
+  color: #f5f5f5;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.dfs-header {
+  margin-bottom: 28px;
+}
+
+.dfs-eyebrow {
+  margin: 0 0 10px;
+
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.dfs-header h1 {
+  margin: 0;
+
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.dfs-description {
+  margin: 10px 0 0;
+
+  color: #8d96a5;
+  font-size: 15px;
+}
+
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.dfs-controls {
+  width: 100%;
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+  padding: 16px 20px;
+
+  box-sizing: border-box;
+
+  background: #111827;
+  border: 1px solid #1d2635;
+  border-radius: 10px;
+}
+
+.dfs-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dfs-button {
+  border: none;
+  border-radius: 8px;
+
+  padding: 11px 18px;
+
+  background: #334155;
+  color: #f8fafc;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    opacity 0.2s ease;
+}
+
+.dfs-button:hover {
+  background: #475569;
+}
+
+.dfs-button:active {
+  transform: translateY(1px);
+}
+
+.dfs-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dfs-primary {
+  background: #60a5fa;
+  color: #07111f;
+  font-weight: 600;
+}
+
+.dfs-primary:hover {
+  background: #93c5fd;
+}
+
+.dfs-danger {
+  background: #991b1b;
+}
+
+.dfs-danger:hover {
+  background: #b91c1c;
+}
+
+
+/* =========================================
+   SPEED
+========================================= */
+
+.dfs-speed {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.dfs-speed input[type="range"] {
+  width: 160px;
+  cursor: pointer;
+}
+
+.dfs-speed span:last-child {
+  min-width: 55px;
+  text-align: right;
+  color: #f8fafc;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.dfs-stats {
+  margin-top: 18px;
+
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 32px;
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  background: #111827;
+  border: 1px solid #1d2635;
+  border-radius: 10px;
+}
+
+.dfs-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.dfs-stat strong {
+  color: #f8fafc;
+  font-size: 15px;
+}
+
+.dfs-progress-wrapper {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #94a3b8;
+}
+
+.dfs-progress-wrapper strong {
+  min-width: 35px;
+
+  color: #f8fafc;
+  text-align: right;
+}
+
+.dfs-progress {
+  flex: 1;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  background: #263244;
+  border-radius: 999px;
+}
+
+.dfs-progress-fill {
+  height: 100%;
+
+  background: #60a5fa;
+
+  border-radius: inherit;
+
+  transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   STEP PANEL
+========================================= */
+
+.dfs-step-panel {
+  margin-top: 16px;
+
+  padding: 20px 24px;
+
+  background: #111827;
+
+  border: 1px solid #1d2635;
+  border-left: 3px solid #60a5fa;
+
+  border-radius: 8px;
+}
+
+.dfs-step-number {
+  margin-bottom: 9px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+.dfs-step-message {
+  color: #e2e8f0;
+
+  font-size: 17px;
+}
+
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.dfs-content-grid {
+  margin-top: 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.7fr)
+    minmax(320px, 0.8fr);
+
+  gap: 20px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.dfs-card {
+  background: #111827;
+
+  border: 1px solid #1d2635;
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.dfs-card-header {
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 20px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #1d2635;
+}
+
+.dfs-card-header h2 {
+  margin: 0 0 5px;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.dfs-card-header span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+
+/* =========================================
+   GRAPH
+========================================= */
+
+.dfs-graph-card {
+  min-height: 500px;
+}
+
+.dfs-graph {
+  position: relative;
+
+  width: 100%;
+  height: 390px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(96, 165, 250, 0.035),
+      transparent 60%
+    );
+}
+
+.dfs-edges {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.dfs-edge {
+  stroke: #334155;
+  stroke-width: 3;
+
+  transition:
+    stroke 0.2s ease,
+    stroke-width 0.2s ease;
+}
+
+
+/* =========================================
+   GRAPH NODES
+========================================= */
+
+.dfs-node {
+  position: absolute;
+
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  border: 2px solid #475569;
+  border-radius: 50%;
+
+  background: #182233;
+  color: #e2e8f0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* =========================================
+   NODE IN STACK
+========================================= */
+
+.dfs-node.stacked {
+  background: #172b45;
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 0 0 4px rgba(96, 165, 250, 0.08);
+}
+
+
+/* =========================================
+   CURRENT NODE
+========================================= */
+
+.dfs-node.current {
+  background: #f59e0b;
+  border-color: #fbbf24;
+
+  color: #111827;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.12);
+
+  box-shadow:
+    0 0 0 6px rgba(245, 158, 11, 0.12),
+    0 0 25px rgba(245, 158, 11, 0.2);
+}
+
+
+/* =========================================
+   CHECKING NEIGHBOR
+========================================= */
+
+.dfs-node.comparing {
+  background: #7c3aed;
+  border-color: #a78bfa;
+
+  color: #ffffff;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+
+  box-shadow:
+    0 0 0 5px rgba(167, 139, 250, 0.1);
+}
+
+
+/* =========================================
+   VISITED
+========================================= */
+
+.dfs-node.visited {
+  background: #166534;
+  border-color: #22c55e;
+
+  color: #f0fdf4;
+
+  box-shadow:
+    0 0 0 4px rgba(34, 197, 94, 0.08);
+}
+
+
+/* =========================================
+   LEGEND
+========================================= */
+
+.dfs-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  padding: 15px 20px;
+
+  border-top: 1px solid #1d2635;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.dfs-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dfs-legend-dot {
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+}
+
+.dfs-legend-dot.normal {
+  background: #182233;
+  border: 1px solid #475569;
+}
+
+.dfs-legend-dot.stacked {
+  background: #60a5fa;
+}
+
+.dfs-legend-dot.current {
+  background: #f59e0b;
+}
+
+.dfs-legend-dot.comparing {
+  background: #a78bfa;
+}
+
+.dfs-legend-dot.visited {
+  background: #22c55e;
+}
+
+
+/* =========================================
+   SIDE COLUMN
+========================================= */
+
+.dfs-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/* =========================================
+   STACK
+========================================= */
+
+.dfs-stack {
+  min-height: 100px;
+
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+
+  gap: 7px;
+
+  padding: 18px 20px;
+}
+
+.dfs-stack-item {
+  min-height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #60a5fa;
+  border-radius: 7px;
+
+  background: #172b45;
+  color: #bfdbfe;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.dfs-stack-item:first-child {
+  border-color: #f59e0b;
+
+  background: #2a2110;
+  color: #fbbf24;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.dfs-empty {
+  color: #64748b;
+  font-size: 13px;
+}
+
+
+/* =========================================
+   TRAVERSAL
+========================================= */
+
+.dfs-traversal {
+  min-height: 80px;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  padding: 18px 20px;
+}
+
+.dfs-traversal-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  border: 1px solid #1f5131;
+  border-radius: 7px;
+
+  background: #10251a;
+
+  color: #86efac;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dfs-traversal-item span {
+  color: #4ade80;
+  font-size: 11px;
+}
+
+
+/* =========================================
+   ADJACENCY LIST
+========================================= */
+
+.dfs-adjacency {
+  padding: 12px 20px 18px;
+}
+
+.dfs-adjacency-row {
+  min-height: 40px;
+
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  align-items: center;
+
+  border-bottom: 1px solid #1a2331;
+
+  color: #cbd5e1;
+}
+
+.dfs-adjacency-row:last-child {
+  border-bottom: none;
+}
+
+.dfs-adjacency-row strong {
+  color: #f8fafc;
+}
+
+.dfs-adjacency-row > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dfs-neighbor {
+  padding: 3px 8px;
+
+  background: #1e293b;
+
+  border: 1px solid #334155;
+  border-radius: 5px;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   PSEUDOCODE
+========================================= */
+
+.dfs-pseudocode-card {
+  margin-top: 20px;
+}
+
+.dfs-code {
+  padding: 12px 0 16px;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+.dfs-code-line {
+  min-height: 34px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  border-left: 3px solid transparent;
+
+  color: #94a3b8;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.dfs-code-line.active {
+  background: rgba(96, 165, 250, 0.08);
+
+  border-left-color: #60a5fa;
+
+  color: #f8fafc;
+}
+
+.dfs-line-number {
+  width: 35px;
+
+  color: #475569;
+
+  user-select: none;
+}
+
+.dfs-code-line.active .dfs-line-number {
+  color: #60a5fa;
+}
+
+.dfs-code-line code {
+  font-size: 13px;
+}
+
+
+/* =========================================
+   COMPLEXITY
+========================================= */
+
+.dfs-complexity {
+  margin-top: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+.dfs-complexity-card {
+  padding: 20px;
+
+  background: #111827;
+
+  border: 1px solid #1d2635;
+  border-radius: 10px;
+}
+
+.dfs-complexity-card span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dfs-complexity-card strong {
+  color: #f8fafc;
+
+  font-size: 20px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .dfs-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dfs-side-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dfs-graph-card {
+    min-height: auto;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .dfs-page {
+    padding: 25px;
+  }
+
+  .dfs-header h1 {
+    font-size: 34px;
+  }
+
+  .dfs-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dfs-speed {
+    width: 100%;
+  }
+
+  .dfs-speed input[type="range"] {
+    flex: 1;
+  }
+
+  .dfs-stats {
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    padding: 15px 20px;
+  }
+
+  .dfs-progress-wrapper {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .dfs-side-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .dfs-page {
+    padding: 18px;
+  }
+
+  .dfs-header h1 {
+    font-size: 28px;
+  }
+
+  .dfs-description {
+    line-height: 1.6;
+  }
+
+  .dfs-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .dfs-button {
+    padding: 9px 13px;
+  }
+
+  .dfs-step-message {
+    font-size: 15px;
+  }
+
+  .dfs-graph {
+    height: 320px;
+  }
+
+  .dfs-node {
+    width: 48px;
+    height: 48px;
+  }
+
+  .dfs-legend {
+    gap: 12px;
+  }
+
+  .dfs-complexity {
+    grid-template-columns: 1fr;
+  }
+
+  .dfs-code-line {
+    padding: 0 12px;
+  }
+
+  .dfs-code-line code {
+    font-size: 11px;
+  }
+}

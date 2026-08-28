@@ -1,0 +1,275 @@
+.bs-page {
+  padding: 32px 40px 60px;
+  color: #e6e8ee;
+  background: #0b0e14;
+  min-height: 100vh;
+}
+
+.bs-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.bs-subtitle {
+  color: #8b93a7;
+  margin: 0 0 20px;
+  font-size: 15px;
+  max-width: 640px;
+}
+
+.bs-controls {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  background: #131722;
+  border: 1px solid #1e2330;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+
+.bs-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #8b93a7;
+}
+
+.bs-controls input {
+  background: #0b0e14;
+  border: 1px solid #262b38;
+  border-radius: 6px;
+  color: #e6e8ee;
+  padding: 7px 10px;
+  width: 100px;
+  font-size: 14px;
+}
+
+.bs-run {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bs-complexity-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.bs-complexity-badge {
+  background: #1e2330;
+  color: #60a5fa;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-weight: 700;
+}
+
+.bs-badge-space {
+  color: #fbbf24;
+}
+
+.bs-complexity-note {
+  color: #8b93a7;
+}
+
+.bs-playback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #131722;
+  border: 1px solid #1e2330;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.bs-playback button {
+  background: #1a1f2b;
+  color: #c3c9d6;
+  border: 1px solid #262b38;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.bs-playback button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.bs-step-count {
+  color: #8b93a7;
+  font-size: 13px;
+  margin-left: auto;
+}
+
+.bs-speed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #8b93a7;
+}
+
+.bs-note {
+  background: #131722;
+  border-left: 3px solid #2563eb;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: #dfe3ec;
+  min-height: 20px;
+}
+
+.bs-strip {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.bs-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.bs-pointer-row {
+  display: flex;
+  gap: 3px;
+  height: 18px;
+}
+
+.bs-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.bs-tag-low {
+  background: #1e3a5f;
+  color: #60a5fa;
+}
+
+.bs-tag-mid {
+  background: #4a3411;
+  color: #fbbf24;
+}
+
+.bs-tag-high {
+  background: #3a1e4f;
+  color: #c084fc;
+}
+
+.bs-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  border: 1px solid #262b38;
+  background: #1a1f2b;
+  color: #e6e8ee;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s, transform 0.2s;
+}
+
+.bs-default {
+  background: #1a1f2b;
+  border-color: #262b38;
+  color: #e6e8ee;
+}
+
+.bs-range {
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
+.bs-mid {
+  background: #4a3411;
+  border-color: #d97706;
+  color: #fbbf24;
+  transform: translateY(-4px);
+}
+
+.bs-eliminated {
+  opacity: 0.3;
+}
+
+.bs-found {
+  background: #14351f;
+  border-color: #22c55e;
+  color: #86efac;
+  transform: translateY(-4px);
+}
+
+.bs-index {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.bs-legend {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #8b93a7;
+  flex-wrap: wrap;
+}
+
+.bs-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bs-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.bs-dot.bs-default {
+  background: #1a1f2b;
+  border: 1px solid #262b38;
+}
+
+.bs-dot.bs-range {
+  background: #1a1f2b;
+  border: 1px solid #3b82f6;
+}
+
+.bs-dot.bs-mid {
+  background: #4a3411;
+  border: 1px solid #d97706;
+}
+
+.bs-dot.bs-eliminated {
+  background: #1a1f2b;
+  border: 1px solid #262b38;
+  opacity: 0.3;
+}
+
+.bs-dot.bs-found {
+  background: #14351f;
+  border: 1px solid #22c55e;
+}

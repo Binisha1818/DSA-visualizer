@@ -1,0 +1,1003 @@
+/* =========================================
+   HASHMAP VISUALIZER
+========================================= */
+
+.hashmap-page {
+  min-height: 100vh;
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background: #f7f7f5;
+  color: #171717;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.hashmap-header {
+  margin-bottom: 28px;
+}
+
+.hashmap-eyebrow {
+  margin: 0 0 8px;
+
+  color: #999;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.hashmap-header h1 {
+  margin: 0;
+
+  color: #171717;
+
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+
+  letter-spacing: -1.8px;
+}
+
+.hashmap-description {
+  max-width: 680px;
+
+  margin: 10px 0 0;
+
+  color: #777;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   OPERATION INPUT
+========================================= */
+
+.hashmap-operation {
+  display: grid;
+
+  grid-template-columns:
+    minmax(160px, 1fr)
+    minmax(160px, 1fr)
+    150px
+    auto;
+
+  align-items: end;
+
+  gap: 12px;
+
+  padding: 18px;
+
+  background: #fff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.hashmap-input-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.hashmap-input-group label {
+  color: #777;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hashmap-input-group input,
+.hashmap-input-group select {
+  width: 100%;
+
+  height: 42px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  background: #fafaf8;
+
+  border: 1px solid #deded9;
+  border-radius: 8px;
+
+  outline: none;
+
+  color: #222;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hashmap-input-group input:focus,
+.hashmap-input-group select:focus {
+  border-color: #999;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.04);
+}
+
+.hashmap-input-group input::placeholder {
+  color: #aaa;
+}
+
+.hashmap-run-button {
+  height: 42px;
+
+  padding: 0 22px;
+
+  border: 1px solid #171717;
+  border-radius: 8px;
+
+  background: #171717;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.hashmap-run-button:hover {
+  background: #333;
+}
+
+.hashmap-run-button:active {
+  transform: translateY(1px);
+}
+
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.hashmap-controls {
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 14px;
+  padding: 13px 18px;
+
+  box-sizing: border-box;
+
+  background: #fff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+}
+
+.hashmap-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.hashmap-button {
+  padding: 9px 15px;
+
+  border: 1px solid #deded9;
+  border-radius: 8px;
+
+  background: #f5f5f2;
+  color: #222;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.hashmap-button:hover {
+  background: #eeeeeb;
+
+  border-color: #d1d1cb;
+}
+
+.hashmap-button:active {
+  transform: translateY(1px);
+}
+
+.hashmap-button:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+}
+
+.hashmap-button.primary {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #fff;
+}
+
+.hashmap-button.primary:hover {
+  background: #333;
+}
+
+.hashmap-button.danger {
+  color: #a33;
+
+  background: #fff;
+}
+
+.hashmap-button.danger:hover {
+  background: #fff5f3;
+
+  border-color: #e2c8c3;
+}
+
+
+/* =========================================
+   SPEED
+========================================= */
+
+.hashmap-speed {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+.hashmap-speed input[type="range"] {
+  width: 150px;
+
+  accent-color: #171717;
+
+  cursor: pointer;
+}
+
+.hashmap-speed span:last-child {
+  min-width: 45px;
+
+  color: #333;
+
+  text-align: right;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.hashmap-card {
+  margin-top: 14px;
+
+  overflow: hidden;
+
+  background: #fff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+}
+
+.hashmap-card-header {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 13px 18px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #ededeb;
+}
+
+.hashmap-card-header h2 {
+  margin: 0 0 4px;
+
+  color: #222;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.hashmap-card-header span {
+  color: #999;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   HASHING PROCESS
+========================================= */
+
+.hashmap-flow-content {
+  min-height: 130px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.hashmap-flow-box {
+  min-width: 125px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 15px 18px;
+
+  background: #f8f8f6;
+
+  border: 1px solid #e1e1dc;
+  border-radius: 9px;
+}
+
+.hashmap-flow-box small {
+  color: #999;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+.hashmap-flow-box strong {
+  max-width: 160px;
+
+  overflow: hidden;
+
+  color: #222;
+
+  font-size: 14px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hashmap-flow-box.result {
+  background: #171717;
+
+  border-color: #171717;
+}
+
+.hashmap-flow-box.result small {
+  color: #aaa;
+}
+
+.hashmap-flow-box.result strong {
+  color: #fff;
+
+  font-size: 18px;
+}
+
+.hashmap-flow-arrow {
+  color: #aaa;
+
+  font-size: 20px;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.hashmap-message {
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 14px;
+  padding: 15px 20px;
+
+  box-sizing: border-box;
+
+  background: #fff;
+
+  border: 1px solid #e3e3df;
+  border-left: 3px solid #171717;
+
+  border-radius: 10px;
+}
+
+.hashmap-message span {
+  color: #999;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.hashmap-message p {
+  margin: 6px 0 0;
+
+  color: #444;
+
+  font-size: 14px;
+}
+
+.hashmap-status {
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: #f0f0ed;
+
+  color: #777;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.hashmap-status.hashing,
+.hashmap-status.index,
+.hashmap-status.checking {
+  background: #fff6df;
+
+  color: #9a6800;
+}
+
+.hashmap-status.inserted,
+.hashmap-status.updated,
+.hashmap-status.found {
+  background: #edf7ef;
+
+  color: #36703d;
+}
+
+.hashmap-status.collision {
+  background: #fff0eb;
+
+  color: #a84d35;
+}
+
+.hashmap-status.deleted {
+  background: #f1f1ef;
+
+  color: #333;
+}
+
+.hashmap-status.not-found {
+  background: #f9eeee;
+
+  color: #9a3e3e;
+}
+
+
+/* =========================================
+   BUCKETS
+========================================= */
+
+.hashmap-buckets {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(150px, 1fr));
+
+  gap: 12px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+.hashmap-bucket {
+  min-height: 150px;
+
+  padding: 10px;
+
+  background: #fafaf8;
+
+  border: 1px solid #e2e2dd;
+  border-radius: 10px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hashmap-bucket.active {
+  background: #f4f4f1;
+
+  border-color: #777;
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.hashmap-bucket-index {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 10px;
+
+  border-radius: 6px;
+
+  background: #e9e9e5;
+
+  color: #666;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.hashmap-bucket.active .hashmap-bucket-index {
+  background: #171717;
+
+  color: #fff;
+}
+
+
+/* =========================================
+   CHAIN
+========================================= */
+
+.hashmap-chain {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.hashmap-empty {
+  padding: 12px 8px;
+
+  color: #b1b1ac;
+
+  font-size: 11px;
+
+  font-style: italic;
+
+  text-align: center;
+}
+
+.hashmap-entry {
+  min-height: 37px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 0 9px;
+
+  box-sizing: border-box;
+
+  background: #fff;
+
+  border: 1px solid #deded9;
+  border-radius: 7px;
+
+  color: #555;
+
+  font-size: 12px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hashmap-entry strong {
+  overflow: hidden;
+
+  color: #222;
+
+  font-size: 12px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hashmap-entry span:last-child {
+  margin-left: auto;
+
+  color: #555;
+
+  font-weight: 600;
+}
+
+.hashmap-entry.active {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #fff;
+
+  transform: translateX(3px);
+}
+
+.hashmap-entry.active strong,
+.hashmap-entry.active span {
+  color: #fff;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.hashmap-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr)
+    2fr;
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+.hashmap-stat {
+  min-height: 82px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 15px 18px;
+
+  box-sizing: border-box;
+
+  background: #fff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+}
+
+.hashmap-stat span {
+  margin-bottom: 7px;
+
+  color: #999;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hashmap-stat strong {
+  color: #171717;
+
+  font-size: 20px;
+}
+
+.hashmap-load-stat {
+  justify-content: center;
+}
+
+.hashmap-load-stat > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hashmap-load-stat > div:first-child span {
+  margin: 0;
+}
+
+.hashmap-load-stat > div:first-child strong {
+  font-size: 16px;
+}
+
+.hashmap-load-bar {
+  width: 100%;
+  height: 6px;
+
+  margin-top: 9px;
+
+  overflow: hidden;
+
+  background: #e9e9e5;
+
+  border-radius: 999px;
+}
+
+.hashmap-load-bar div {
+  height: 100%;
+
+  background: #171717;
+
+  border-radius: inherit;
+
+  transition:
+    width 0.3s ease,
+    background 0.2s ease;
+}
+
+.hashmap-load-bar div.warning {
+  background: #c47700;
+}
+
+
+/* =========================================
+   OPERATION DETAILS
+========================================= */
+
+.hashmap-operation-card {
+  margin-top: 14px;
+}
+
+.hashmap-operation-content {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  padding: 5px 18px 15px;
+}
+
+.hashmap-operation-item {
+  min-height: 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 15px;
+
+  border-right: 1px solid #ededeb;
+}
+
+.hashmap-operation-item:first-child {
+  padding-left: 0;
+}
+
+.hashmap-operation-item:last-child {
+  border-right: none;
+}
+
+.hashmap-operation-item span {
+  margin-bottom: 6px;
+
+  color: #999;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.hashmap-operation-item strong {
+  overflow: hidden;
+
+  color: #222;
+
+  font-size: 14px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   COMPLEXITY
+========================================= */
+
+.hashmap-complexity {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
+
+  margin-top: 14px;
+}
+
+.hashmap-complexity-card {
+  padding: 18px;
+
+  background: #fff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+}
+
+.hashmap-complexity-card span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #999;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.hashmap-complexity-card strong {
+  color: #171717;
+
+  font-size: 18px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .hashmap-buckets {
+    grid-template-columns:
+      repeat(2, minmax(150px, 1fr));
+  }
+
+  .hashmap-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .hashmap-load-stat {
+    grid-column: span 2;
+  }
+
+  .hashmap-complexity {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 850px) {
+  .hashmap-page {
+    padding: 25px;
+  }
+
+  .hashmap-operation {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .hashmap-run-button {
+    width: 100%;
+  }
+
+  .hashmap-flow-content {
+    flex-wrap: wrap;
+  }
+
+  .hashmap-flow-arrow {
+    display: none;
+  }
+
+  .hashmap-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hashmap-speed {
+    width: 100%;
+  }
+
+  .hashmap-speed input[type="range"] {
+    flex: 1;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .hashmap-page {
+    padding: 18px;
+  }
+
+  .hashmap-header h1 {
+    font-size: 30px;
+  }
+
+  .hashmap-operation {
+    grid-template-columns: 1fr;
+  }
+
+  .hashmap-buttons {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .hashmap-button {
+    padding: 8px 12px;
+  }
+
+  .hashmap-buckets {
+    grid-template-columns: 1fr;
+  }
+
+  .hashmap-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hashmap-load-stat {
+    grid-column: auto;
+  }
+
+  .hashmap-operation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hashmap-operation-item {
+    min-height: 50px;
+
+    padding: 8px 0;
+
+    border-right: none;
+    border-bottom: 1px solid #ededeb;
+  }
+
+  .hashmap-operation-item:last-child {
+    border-bottom: none;
+  }
+
+  .hashmap-complexity {
+    grid-template-columns: 1fr;
+  }
+
+  .hashmap-flow-box {
+    min-width: 105px;
+  }
+
+  .hashmap-message {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

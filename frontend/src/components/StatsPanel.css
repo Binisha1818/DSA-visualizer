@@ -1,0 +1,47 @@
+/* StatsPanel.css */
+
+.stats-panel {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 16px;
+  background: #111827;
+  border-radius: 8px;
+  margin: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.stats-panel__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.stats-panel__label {
+  color: #9ca3af;
+}
+
+.stats-panel__value {
+  color: #e5e7eb;
+  font-weight: 600;
+}
+
+.stats-panel__item--progress {
+  flex: 1;
+  min-width: 160px;
+}
+
+.stats-panel__bar {
+  flex: 1;
+  height: 6px;
+  background: #1f2937;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stats-panel__bar-fill {
+  height: 100%;
+  background: #60a5fa;
+  transition: width 0.15s ease;
+}

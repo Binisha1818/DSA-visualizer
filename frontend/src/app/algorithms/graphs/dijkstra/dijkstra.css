@@ -1,0 +1,955 @@
+/* =========================================
+   DIJKSTRA VISUALIZER
+   HOME PAGE THEME
+========================================= */
+
+.dijkstra-page {
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+
+  background: #f7f7f5;
+  color: #171717;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.dijkstra-header {
+  margin-bottom: 30px;
+}
+
+.dijkstra-eyebrow {
+  margin: 0 0 8px;
+
+  color: #777;
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.dijkstra-header h1 {
+  margin: 0;
+
+  color: #171717;
+
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 700;
+
+  letter-spacing: -1.8px;
+}
+
+.dijkstra-description {
+  max-width: 650px;
+
+  margin: 10px 0 0;
+
+  color: #777;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.dijkstra-controls {
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 18px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.dijkstra-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dijkstra-button {
+  border: 1px solid #deded9;
+  border-radius: 8px;
+
+  padding: 10px 16px;
+
+  background: #f5f5f2;
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.dijkstra-button:hover {
+  background: #eeeeeb;
+  border-color: #d2d2cc;
+}
+
+.dijkstra-button:active {
+  transform: translateY(1px);
+}
+
+.dijkstra-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dijkstra-primary {
+  background: #171717;
+  border-color: #171717;
+  color: #ffffff;
+}
+
+.dijkstra-primary:hover {
+  background: #303030;
+}
+
+.dijkstra-danger {
+  color: #b42318;
+}
+
+.dijkstra-danger:hover {
+  background: #fff4f2;
+  border-color: #f0c8c3;
+}
+
+
+/* =========================================
+   SPEED
+========================================= */
+
+.dijkstra-speed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+.dijkstra-speed input[type="range"] {
+  width: 150px;
+
+  accent-color: #171717;
+
+  cursor: pointer;
+}
+
+.dijkstra-speed span:last-child {
+  min-width: 45px;
+
+  color: #333;
+
+  text-align: right;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.dijkstra-stats {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 14px;
+  padding: 0 18px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+}
+
+.dijkstra-stat {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+.dijkstra-stat strong {
+  color: #171717;
+
+  font-size: 14px;
+}
+
+.dijkstra-progress-wrapper {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+.dijkstra-progress-wrapper strong {
+  min-width: 35px;
+
+  color: #171717;
+
+  text-align: right;
+}
+
+.dijkstra-progress {
+  flex: 1;
+
+  height: 6px;
+
+  overflow: hidden;
+
+  background: #e8e8e4;
+
+  border-radius: 999px;
+}
+
+.dijkstra-progress-fill {
+  height: 100%;
+
+  background: #171717;
+
+  border-radius: inherit;
+
+  transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   STEP MESSAGE
+========================================= */
+
+.dijkstra-step-panel {
+  margin-top: 14px;
+
+  padding: 18px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+}
+
+.dijkstra-step-number {
+  margin-bottom: 7px;
+
+  color: #999;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.dijkstra-step-message {
+  color: #333;
+
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.dijkstra-content-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.65fr)
+    minmax(300px, 0.75fr);
+
+  gap: 14px;
+
+  margin-top: 14px;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.dijkstra-card {
+  background: #ffffff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.dijkstra-card-header {
+  min-height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #ededeb;
+}
+
+.dijkstra-card-header h2 {
+  margin: 0 0 4px;
+
+  color: #222;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dijkstra-card-header span {
+  color: #999;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   GRAPH
+========================================= */
+
+.dijkstra-graph-card {
+  min-height: 500px;
+}
+
+.dijkstra-graph {
+  position: relative;
+
+  width: 100%;
+  height: 400px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0.018),
+      transparent 65%
+    );
+}
+
+.dijkstra-edges {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.dijkstra-edge {
+  stroke: #c8c8c3;
+  stroke-width: 2.5;
+
+  transition:
+    stroke 0.2s ease,
+    stroke-width 0.2s ease;
+}
+
+.dijkstra-edge.checking {
+  stroke: #e09a00;
+  stroke-width: 4;
+}
+
+.dijkstra-edge.shortest {
+  stroke: #171717;
+  stroke-width: 4;
+}
+
+.dijkstra-edge-weight {
+  fill: #555;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================
+   NODES
+========================================= */
+
+.dijkstra-node {
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  background: #ffffff;
+
+  border: 2px solid #bdbdb7;
+  border-radius: 50%;
+
+  color: #222;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dijkstra-node span {
+  position: relative;
+
+  top: -4px;
+}
+
+.dijkstra-node small {
+  position: absolute;
+
+  bottom: 5px;
+
+  color: #888;
+
+  font-size: 9px;
+  font-weight: 500;
+}
+
+
+/* CURRENT */
+
+.dijkstra-node.current {
+  background: #171717;
+
+  border-color: #171717;
+
+  color: #ffffff;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.1);
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+.dijkstra-node.current small {
+  color: #d4d4d4;
+}
+
+
+/* CHECKING */
+
+.dijkstra-node.checking {
+  background: #fff8e7;
+
+  border-color: #e09a00;
+
+  color: #8a5b00;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1.08);
+}
+
+
+/* VISITED */
+
+.dijkstra-node.visited {
+  background: #eef7ef;
+
+  border-color: #69a66f;
+
+  color: #27612d;
+}
+
+
+/* =========================================
+   GRAPH LEGEND
+========================================= */
+
+.dijkstra-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  padding: 14px 18px;
+
+  border-top: 1px solid #ededeb;
+
+  color: #888;
+
+  font-size: 11px;
+}
+
+.dijkstra-legend-item {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.dijkstra-legend-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  box-sizing: border-box;
+}
+
+.dijkstra-legend-dot.normal {
+  background: #ffffff;
+  border: 1px solid #aaa;
+}
+
+.dijkstra-legend-dot.current {
+  background: #171717;
+}
+
+.dijkstra-legend-dot.checking {
+  background: #e09a00;
+}
+
+.dijkstra-legend-dot.visited {
+  background: #69a66f;
+}
+
+.dijkstra-legend-dot.shortest {
+  background: #171717;
+}
+
+
+/* =========================================
+   RIGHT COLUMN
+========================================= */
+
+.dijkstra-side-column {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+/* =========================================
+   PRIORITY QUEUE
+========================================= */
+
+.dijkstra-queue {
+  min-height: 80px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding: 14px 18px;
+}
+
+.dijkstra-queue-item {
+  min-height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  background: #f7f7f5;
+
+  border: 1px solid #e5e5e0;
+  border-radius: 7px;
+
+  color: #333;
+
+  font-size: 13px;
+}
+
+.dijkstra-queue-item:first-child {
+  background: #f0f0ed;
+
+  border-color: #cfcfca;
+}
+
+.dijkstra-queue-item strong {
+  color: #171717;
+}
+
+.dijkstra-empty {
+  color: #aaa;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   DISTANCES
+========================================= */
+
+.dijkstra-distances {
+  padding: 6px 18px 14px;
+}
+
+.dijkstra-distance-row {
+  min-height: 39px;
+
+  display: grid;
+
+  grid-template-columns: 30px 55px 1fr;
+
+  align-items: center;
+
+  border-bottom: 1px solid #eeeeeb;
+
+  font-size: 13px;
+}
+
+.dijkstra-distance-row:last-child {
+  border-bottom: none;
+}
+
+.dijkstra-distance-row strong {
+  color: #222;
+}
+
+.dijkstra-distance-row span {
+  color: #171717;
+
+  font-weight: 600;
+}
+
+.dijkstra-distance-row small {
+  color: #999;
+
+  text-align: right;
+}
+
+
+/* =========================================
+   ADJACENCY LIST
+========================================= */
+
+.dijkstra-adjacency {
+  padding: 5px 18px 15px;
+}
+
+.dijkstra-adjacency-row {
+  min-height: 40px;
+
+  display: grid;
+
+  grid-template-columns: 30px 1fr;
+
+  align-items: center;
+
+  border-bottom: 1px solid #eeeeeb;
+}
+
+.dijkstra-adjacency-row:last-child {
+  border-bottom: none;
+}
+
+.dijkstra-adjacency-row > strong {
+  color: #222;
+
+  font-size: 13px;
+}
+
+.dijkstra-adjacency-row > div {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+}
+
+.dijkstra-neighbor {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 4px 7px;
+
+  background: #f6f6f3;
+
+  border: 1px solid #e3e3de;
+  border-radius: 5px;
+
+  color: #555;
+
+  font-size: 11px;
+}
+
+.dijkstra-neighbor small {
+  color: #999;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   PSEUDOCODE
+========================================= */
+
+.dijkstra-pseudocode-card {
+  margin-top: 14px;
+}
+
+.dijkstra-code {
+  padding: 8px 0 12px;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+.dijkstra-code-line {
+  min-height: 34px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 18px;
+
+  border-left: 3px solid transparent;
+
+  color: #888;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.dijkstra-code-line.active {
+  background: #f5f5f2;
+
+  border-left-color: #171717;
+
+  color: #171717;
+}
+
+.dijkstra-line-number {
+  width: 35px;
+
+  color: #bbb;
+
+  user-select: none;
+}
+
+.dijkstra-code-line.active
+.dijkstra-line-number {
+  color: #555;
+}
+
+.dijkstra-code-line code {
+  font-size: 12px;
+}
+
+
+/* =========================================
+   COMPLEXITY
+========================================= */
+
+.dijkstra-complexity {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+
+  margin-top: 14px;
+}
+
+.dijkstra-complexity-card {
+  padding: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3e3df;
+  border-radius: 12px;
+}
+
+.dijkstra-complexity-card span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #999;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.dijkstra-complexity-card strong {
+  color: #171717;
+
+  font-size: 18px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .dijkstra-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dijkstra-side-column {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 900px) {
+  .dijkstra-page {
+    padding: 25px;
+  }
+
+  .dijkstra-header h1 {
+    font-size: 34px;
+  }
+
+  .dijkstra-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dijkstra-speed {
+    width: 100%;
+  }
+
+  .dijkstra-speed input[type="range"] {
+    flex: 1;
+  }
+
+  .dijkstra-stats {
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    padding: 15px 18px;
+  }
+
+  .dijkstra-progress-wrapper {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .dijkstra-side-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .dijkstra-page {
+    padding: 18px;
+  }
+
+  .dijkstra-header h1 {
+    font-size: 28px;
+  }
+
+  .dijkstra-buttons {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .dijkstra-button {
+    padding: 9px 12px;
+  }
+
+  .dijkstra-graph {
+    height: 330px;
+  }
+
+  .dijkstra-node {
+    width: 48px;
+    height: 48px;
+
+    font-size: 15px;
+  }
+
+  .dijkstra-legend {
+    gap: 12px;
+  }
+
+  .dijkstra-complexity {
+    grid-template-columns: 1fr;
+  }
+
+  .dijkstra-code-line {
+    padding: 0 12px;
+  }
+
+  .dijkstra-code-line code {
+    font-size: 10px;
+  }
+}

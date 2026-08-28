@@ -1,0 +1,47 @@
+/* stepExplanation.css */
+
+.step-explanation {
+  padding: 12px 16px;
+  background: #111827;
+  border-left: 3px solid #60a5fa;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+}
+
+.step-explanation__header {
+  margin-bottom: 6px;
+}
+
+.step-explanation__step-count {
+  font-size: 11px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.step-explanation__message {
+  font-size: 14px;
+  color: #e5e7eb;
+  margin: 0;
+}
+
+.step-explanation__comparison {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.step-explanation__chip {
+  padding: 4px 10px;
+  background: #1f2937;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f87171;
+}
+
+.step-explanation__vs {
+  font-size: 11px;
+  color: #6b7280;
+}
